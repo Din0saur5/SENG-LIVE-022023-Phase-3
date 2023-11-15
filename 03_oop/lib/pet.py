@@ -5,14 +5,20 @@
     # Compare the pet instances to demonstrate they are not the same object
     # Note: add 'pass' to the pet class 
 
-
+import ipdb
 class Pet:
-    # pass
+    def __init__(self, name, age, breed, temperment, image_url):
+        self.name = name
+        self.age = age
+        self.breed = breed
+        self.temperment = temperment
+        self.image_url = image_url
+        
+        
 # 3. ✅ Demonstrate __init__ 
     # Add arguments to instances  
     # use dot notation to access their attributes 
     # update attributes with new values 
-
 
 # 4.✅ Demonstrate instance methods by creating a print_pet_details function that will print the pet attributes
 #     Review the self keyword 
@@ -24,7 +30,14 @@ class Pet:
             # temperament:sweet
             # image_url:rose.jpg
 
-
+    def print_pet_details(self):
+        print(f'''
+              name: {self.name}
+              age: {self.age}
+              breed: {self.breed}
+              temperment: {self.temperment}
+              image_url: {self.image_url}
+              ''')
 # Demonstrate instances 
     # Different Instances are Different Objects
 # Demonstrate __init__
@@ -34,6 +47,7 @@ class Pet:
 # Demonstrate object properties
 
 # Instances 
+# rose =('rose',11,'domestic longhair', 'sweet','rose.jpg')
 
 # Run in ipdb session
 # rose == cookie
@@ -48,3 +62,15 @@ class Pet:
 # rose.age = 12
 # rose.age -> 12
 
+rose_dict={
+    
+    'name':'rose',
+    'age':11,
+    'breed':'domestic longhair',
+    'temperment':'sweet',
+    'image_url':'rose.jpg'
+    
+    }
+rose = Pet(**rose_dict)
+print(rose)
+rose.print_pet_details()
